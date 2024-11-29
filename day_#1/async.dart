@@ -1,26 +1,20 @@
 import 'dart:async';
 
-void main(List<String> args) {
+void main(List<String> args) async {
   print(args);
   //(fetchUser().then((v) => print(v)));
 
-  /*getUser().then((i) {
+  getUser().then((i) {
     print(i);
-  }, onError: (e) => print(e));*/
+  }, onError: (e) => print(e));
 
-  print(welcome('F', name: 'Dagi', age: 6));
+  //print(welcome('F', name: 'Dagi', age: 6));
 
   var list_num = it();
 
   print(list_num.where((ele) => ele > 5));
 
-  for (var element in [
-    1,
-    4,
-    5,
-    6,
-    6,
-  ]) {
+  await for (var element in itAsync()) {
     print(element);
   }
 
@@ -55,4 +49,10 @@ String welcome(
   required int? age,
 }) {
   return '$name and $age';
+}
+
+Stream<int> itAsync() async* {
+  for (var i = 0; i < 10; i++) {
+    yield i;
+  }
 }

@@ -1,13 +1,13 @@
 # E-commerce App with Flutter: To-Do List
 
 ## Week 1: Foundations of Flutter and Dart
-- [ ] Day 1-2: Learn Dart basics  
-  - [ ] Variables, data types, and control flow  
-  - [ ] Classes and object-oriented concepts  
-  - [ ] Async programming  
-- [ ] Day 3-4: Set up Flutter environment  
-  - [ ] Install Flutter and configure the environment  
-  - [ ] Create your first Flutter app  
+- [x] Day 1-2: Learn Dart basics  
+  - [x] Variables, data types, and control flow  
+  - [x] Classes and object-oriented concepts  
+  - [x] Async programming  
+- [x] Day 3-4: Set up Flutter environment  
+  - [x] Install Flutter and configure the environment  
+  - [x] Create your first Flutter app  
   - [ ] Explore widgets: Text, Column, Row, Container, Scaffold  
 - [ ] Day 5-7: UI basics  
   - [ ] Learn StatelessWidget and StatefulWidget  
