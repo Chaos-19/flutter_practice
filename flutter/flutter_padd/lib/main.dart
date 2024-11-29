@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-import "screens/home.dart";
+import "screens/splash.dart";
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       themeMode: _themeMode,
-      home: HomeScreen(
+      home: SplashScreen(
         isDarkMode: _themeMode == ThemeMode.dark,
         onThemeToggle: toggleTheme,
       ),

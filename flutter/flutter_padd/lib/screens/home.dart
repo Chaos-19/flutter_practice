@@ -30,141 +30,158 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const Text(
-          'Drawer Example',
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.brightness_6),
-            onPressed: () {
-              setState(() {
-                _isDarkMode = !_isDarkMode; // Update local state
-              });
-              widget.onThemeToggle(!_isDarkMode);
-            },
-          ),
-        ],
-        elevation: 7,
-        shadowColor: Colors.lightBlue,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-      ),
-      body: [
-        Center(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) =>
-                      const SecondPage(),
-                  transitionsBuilder:
-                      (context, animation, secondaryAnimation, child) {
-                    const begin = Offset(1.0, 0.0); // Start from the right
-                    const end = Offset.zero; // Move to original position
-                    const curve = Curves.ease;
-
-                    final tween = Tween(begin: begin, end: end)
-                        .chain(CurveTween(curve: curve));
-                    final offsetAnimation = animation.drive(tween);
-
-                    return SlideTransition(
-                      position: offsetAnimation,
-                      child: child,
-                    );
+    return DefaultTabController(
+        initialIndex: 1,
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
+            title: const Text(
+              'Drawer Example',
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.brightness_6),
+                onPressed: () {
+                  setState(() {
+                    _isDarkMode = !_isDarkMode; // Update local state
+                  });
+                  widget.onThemeToggle(!_isDarkMode);
+                },
+              ),
+            ],
+            bottom: const TabBar(
+              tabs: <Widget>[
+                Tab(
+                  icon: Icon(Icons.cloud_outlined),
+                ),
+                Tab(
+                  icon: Icon(Icons.beach_access_sharp),
+                ),
+                Tab(
+                  icon: Icon(Icons.brightness_5_sharp),
+                ),
+              ],
+            ),
+            elevation: 7,
+            shadowColor: Colors.lightBlue,
+            leading: Builder(
+              builder: (BuildContext context) {
+                return IconButton(
+                  icon: const Icon(Icons.menu),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
                   },
-                ),
-                // MaterialPageRoute(builder: (context) => SecondPage())
-              );
-            },
-            child: Text('Hello from Home'),
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
+                );
+              },
+            ),
           ),
-        ),
-        const Center(
-          child: Text('Hello From Favorite'),
-        ),
-        const Center(
-          child: Text('Hello From Settings'),
-        ),
-      ][_tabIndex],
-      drawer: Drawer(
-        clipBehavior: Clip.none,
-        child: ListView(
-          clipBehavior: Clip.none,
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              margin: EdgeInsets.zero,
-              padding: EdgeInsets.zero,
-              decoration: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.zero,
-                  border: Border.all(
-                    //color: Colors.yellow,
-                    width: 2,
-                  )),
-              child: Container(
-                margin: EdgeInsets.zero,
-                decoration: BoxDecoration(
-                    border: Border.all(
-                  // color: Colors.red,
-                  width: 2,
-                )),
-                child: Image.asset(
-                  'assets/IMG_2740.jpg',
-                  fit: BoxFit.fill,
-                ),
+          body: [
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const SecondPage(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(1.0, 0.0); // Start from the right
+                        const end = Offset.zero; // Move to original position
+                        const curve = Curves.ease;
+
+                        final tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        final offsetAnimation = animation.drive(tween);
+
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
+                      },
+                    ),
+                    // MaterialPageRoute(builder: (context) => SecondPage())
+                  );
+                },
+                child: Text('Hello from Home'),
               ),
             ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app.
-                // ...
-              },
+            const Center(
+              child: Text('Hello From Favorite'),
             ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {},
+            const Center(
+              child: Text('Hello From Settings'),
             ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (value) => {
-          setState(() {
-            _tabIndex = value;
-          })
-        },
-        //selectedItemColor: Colors.green,
-        currentIndex: _tabIndex,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+          ][_tabIndex],
+          drawer: Drawer(
+            clipBehavior: Clip.none,
+            child: ListView(
+              clipBehavior: Clip.none,
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.zero,
+                      border: Border.all(
+                        //color: Colors.yellow,
+                        width: 2,
+                      )),
+                  child: Container(
+                    margin: EdgeInsets.zero,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      // color: Colors.red,
+                      width: 2,
+                    )),
+                    child: Image.asset(
+                      'assets/IMG_2740.jpg',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Item 1'),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+                ListTile(
+                  title: const Text('Item 2'),
+                  onTap: () {},
+                ),
+              ],
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorite',
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: (value) => {
+              setState(() {
+                _tabIndex = value;
+              })
+            },
+            //selectedItemColor: Colors.green,
+            currentIndex: _tabIndex,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite),
+                label: 'Favorite',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
