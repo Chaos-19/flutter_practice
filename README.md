@@ -8,11 +8,11 @@
 - [x] Day 3-4: Set up Flutter environment  
   - [x] Install Flutter and configure the environment  
   - [x] Create your first Flutter app  
-  - [ ] Explore widgets: Text, Column, Row, Container, Scaffold  
-- [ ] Day 5-7: UI basics  
-  - [ ] Learn StatelessWidget and StatefulWidget  
-  - [ ] Explore layout widgets: Stack, ListView, GridView, Expanded  
-  - [ ] Build a simple home screen with basic navigation (Navigator.push and pop)  
+  - [x] Explore widgets: Text, Column, Row, Container, Scaffold  
+- [x] Day 5-7: UI basics  
+  - [x] Learn StatelessWidget and StatefulWidget  
+  - [x] Explore layout widgets: Stack, ListView, GridView, Expanded  
+  - [x] Build a simple home screen with basic navigation (Navigator.push and pop)  
 
 ---
 

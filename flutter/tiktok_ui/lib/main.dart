@@ -16,7 +16,7 @@ class TikTokUI extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeNotifer = Provider.of<ThemeNotifer>(context);
 
-    return MaterialApp(
+    return MaterialApp(cd 
       title: 'TiktokUI',
       theme: themeNotifer.currentTheme,
       home: HomeScreen(),
