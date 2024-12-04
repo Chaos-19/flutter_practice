@@ -22,6 +22,7 @@ class FlutterPadd extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Padd',
       theme: themeNotifier.currentTheme,
+      
       home: const HomeScreen(),
     );
   }

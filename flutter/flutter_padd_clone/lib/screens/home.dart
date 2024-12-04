@@ -48,42 +48,34 @@ class _HomeScreenState extends State<HomeScreen> {
           // Getting Started Section
           _buildSection(
             title: 'Getting Started',
-            iconPath:
-                'assets/images/flutter.svg', //Replace with your actual path
+            iconPath: 'assets/images/flutter.svg',
             items: [
-              _buildItem('Introduction',
-                  'assets/images/flutter-3.svg'), //Replace with your actual path
-              _buildItem('Why Learn Flutter',
-                  'assets/images/flutter-4.svg'), //Replace with your actual path
+              _buildItem('Introduction', 'assets/images/flutter-3.svg'),
+              _buildItem('Why Learn Flutter', 'assets/images/flutter-4.svg'),
             ],
           ),
           // Dart Basics Section
           _buildSection(
             title: 'Dart Basics',
-            iconPath:
-                'assets/images/flutter-3.svg', //Replace with your actual path
+            iconPath: 'assets/images/flutter-3.svg',
+            bgColor: Colors.black45,
             items: [
-              _buildItem('Dart',
-                  'assets/images/flutter.svg'), //Replace with your actual path
+              _buildItem('Dart', 'assets/images/flutter.svg'),
             ],
           ),
           // Flutter Widgets Section (Empty for this example)
           _buildSection(
             title: 'Flutter Widgets',
-            iconPath:
-                'assets/images/flutter.svg', //Replace with your actual path
+            iconPath: 'assets/images/flutter.svg',
             items: [],
           ),
           // Testing & Debugging Section
           _buildSection(
             title: 'Testing & Debugging',
-            iconPath:
-                'assets/images/flutter.svg', //Replace with your actual path
+            iconPath: 'assets/images/flutter.svg',
             items: [
-              _buildItem('Unit Testing',
-                  'assets/images/flutter-6.svg'), //Replace with your actual path
-              _buildItem('Widget Testing',
-                  'assets/images/flutter-5.svg'), //Replace with your actual path
+              _buildItem('Unit Testing', 'assets/images/flutter-6.svg'),
+              _buildItem('Widget Testing', 'assets/images/flutter-5.svg'),
             ],
           ),
         ],
@@ -100,11 +92,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildSection({
     required String title,
+    Color bgColor = const Color.fromARGB(255, 224, 229, 232),
     required String iconPath,
     required List<Widget> items,
   }) {
     return Container(
-        color: Colors.grey[300],
+        color: bgColor,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -146,6 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // Handle item tap
       },
       child: Card(
+        color: Colors.white,
         elevation: 5,
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),

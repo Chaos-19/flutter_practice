@@ -21,8 +21,10 @@ class ThemeNotifier extends ChangeNotifier {
 
     await prefs.setBool('isDarkMode', _isDarkMode);
     notifyListeners();
-    
   }
+
+  ThemeMode get currentThemeMode =>
+      _isDarkMode ? ThemeMode.dark : ThemeMode.light;
 
   ThemeData get currentTheme =>
       _isDarkMode ? ThemeData.dark() : ThemeData.light();
