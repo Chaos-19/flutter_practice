@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_padd_clone/models/font_size_notifier.dart';
 import 'package:flutter_padd_clone/models/theme_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
+    final fontSizeNotifier = Provider.of<FontSizeNotifier>(context);
 
     return Drawer(
       shape: const RoundedRectangleBorder(
@@ -100,10 +102,20 @@ class AppDrawer extends StatelessWidget {
             color: Colors.grey,
             endIndent: 0,
           ),
-          const ExpansionTile(
-            title: Text('Item 1'),
+          ExpansionTile(
+            title: Text(
+              'change font',
+              style: TextStyle(fontSize: fontSizeNotifier.fontSize),
+            ),
             children: <Widget>[
-              ListTile(title: Text('Details for Item 1')),
+              Slider(
+                divisions: 6,
+                min: 16,
+                max: 26,
+                label: fontSizeNotifier.fontSize.round().toString(),
+                value: fontSizeNotifier.fontSize,
+                onChanged: (value) => {fontSizeNotifier.changeFontSize(value)},
+              )
             ],
           ),
           ListTile(

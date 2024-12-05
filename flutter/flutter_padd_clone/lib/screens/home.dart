@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_padd_clone/models/font_size_notifier.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter_padd_clone/models/theme_notifier.dart';
@@ -18,14 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    final fontSizeNotifier = Provider.of<FontSizeNotifier>(context);
 
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Learn Flutter coding",
-          style: TextStyle(color: Colors.white, fontSize: 17),
+          style: TextStyle(
+              color: Colors.white, fontSize: fontSizeNotifier.fontSize),
         ),
         backgroundColor: const Color.fromARGB(255, 8, 28, 58),
         leading: Builder(
